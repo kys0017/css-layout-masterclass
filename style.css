@@ -1,10 +1,11 @@
 .father  {
     display: flex;
     height: 100vh;
-    gap: 10px;
-    justify-content: flex-end;
-    /*flex-wrap: wrap-reverse;*/
+    row-gap: 10px;
+    column-gap: 20px;
+    justify-content: center;
     flex-flow: row wrap;
+    align-items: center;
 }
 
 .box {
@@ -16,4 +17,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.box:first-child {
+    align-self: flex-start;
+}
+
+.box:last-child {
+    align-self: flex-end;
 }
