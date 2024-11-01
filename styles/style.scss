@@ -1,5 +1,64 @@
 @import "./reset.scss";
 
+$gridGap: 5px;
+$cellRadius: 12px;
+
 body {
   height: 100vh;
+  background-color: #7d4aa9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
+
+.wrapper {
+  max-width: 80%;
+  background-color: black;
+  height: 95%;
+  padding: 40px;
+  box-sizing: border-box;
+  .grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    height: 100%;
+    gap: $gridGap;
+    header {
+      background-color: white;
+    }
+    .grid__col {
+      &:first-child {
+        display: grid;
+        background-color: black;
+        gap: $gridGap;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1.8fr 1fr;
+      }
+      &:last-child {
+        display: grid;
+        gap: $gridGap;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: 1.8fr 1fr;
+        .subgrid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr;
+          grid-template-rows: 1.3fr 1fr;
+        }
+        .blog-post {
+          grid-column: span 2;
+          background-color: white;
+          border-radius: $cellRadius;
+        }
+      }
+    }
+    .header {
+      grid-column: span 2;
+      border-radius: $cellRadius;
+    }
+    .grid__img {
+      background-image: url("https://picsum.photos/800/600");
+      background-size: cover;
+      border-radius: $cellRadius;
+    }
+  }
+}
+
